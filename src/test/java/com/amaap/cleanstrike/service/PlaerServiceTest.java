@@ -25,14 +25,14 @@ class PlaerServiceTest {
 
     @Test
     void shouldBeAbleToCreatePlayer() throws DuplicateIdException {
-        // Arrange
+        // arrange
         int playerOneId = 1;
         int playerTwoId = 2;
 
-        // Act
+        // act
         playerService.createPlayer(playerOneId, playerTwoId);
 
-        // Assert
+        // assert
         Set<Integer> createdPlayers = playerService.getCreatedPlayer();
         assertEquals(2, createdPlayers.size());
         assertTrue(createdPlayers.contains(playerOneId));
@@ -41,14 +41,14 @@ class PlaerServiceTest {
 
     @Test
     void shouldBeAbleToCreatePlayerDuplicateInput() throws DuplicateIdException {
-        // Arrange
+        // arrange
         int playerOneId = 1;
         int playerTwoId = 1;
 
-        // Act
+        // act
         playerService.createPlayer(playerOneId, playerTwoId);
 
-        // Assert
+        // assert
         Set<Integer> totalPlayers = playerService.getCreatedPlayer();
         assertEquals(1, totalPlayers.size());
     }

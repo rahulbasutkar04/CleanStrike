@@ -1,4 +1,4 @@
-package com.amaap.cleanstrike.controller;
+package com.amaap.cleanstrike;
 
 public enum Http {
     OK,

@@ -15,7 +15,7 @@ class PlayerRepositoryTest {
 
     @Test
     void shouldInsertPlayer() throws DuplicateIdException {
-        // Arrange
+        // arrange
         int playerOneId = 1;
         int playerTwoId = 2;
 
@@ -31,32 +31,30 @@ class PlayerRepositoryTest {
 
     @Test
     void shouldNotInsertDuplicatePlayer() {
-        // Arrange
+        // arrange
         int playerOneId = 1;
         int playerTwoId = 1; // Duplicate ID
 
-        // Act & Assert
+        // act & assert
         DuplicateIdException exception = assertThrows(DuplicateIdException.class, () -> {
             playerRepository.insertPlayer(playerOneId, playerTwoId);
         });
         assertEquals("Duplicate player ID found.", exception.getMessage());
-
-        // Ensure no player was added
         Set<Integer> totalPlayers = playerRepository.getTotalPlayers();
         assertEquals(0, totalPlayers.size());
     }
 
     @Test
     void shouldGetTotalPlayers() throws DuplicateIdException {
-        // Arrange
+        // arrange
         int playerOneId = 1;
         int playerTwoId = 2;
         playerRepository.insertPlayer(playerOneId, playerTwoId);
 
-        // Act
+        // act
         Set<Integer> totalPlayers = playerRepository.getTotalPlayers();
 
-        // Assert
+        // assert
         assertEquals(2, totalPlayers.size());
         assertTrue(totalPlayers.contains(playerOneId));
         assertTrue(totalPlayers.contains(playerTwoId));

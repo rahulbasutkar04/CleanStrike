@@ -1,10 +1,12 @@
-package com.amaap.cleanstrike.controller;
+package com.amaap.cleanstrike.controller.dto;
+
+import com.amaap.cleanstrike.Http;
 
 import java.util.Objects;
 
 public class  Response {
     private  final Http httpStatus;
-    Response(Http httpStatus) {
+    public Response(Http httpStatus) {
         this.httpStatus = httpStatus;
     }
 
