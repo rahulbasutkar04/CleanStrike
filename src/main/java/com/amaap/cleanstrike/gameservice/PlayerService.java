@@ -1,4 +1,4 @@
-package com.amaap.cleanstrike.service;
+package com.amaap.cleanstrike.gameservice;
 
 import com.amaap.cleanstrike.Http;
 import com.amaap.cleanstrike.controller.dto.Response;
