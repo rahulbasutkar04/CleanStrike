@@ -1,18 +1,16 @@
-package com.amaap.cleanstrike.repository;
+package com.amaap.cleanstrike.repository.imlemetation;
 
 import com.amaap.cleanstrike.repository.exception.DuplicateIdException;
-import com.amaap.cleanstrike.repository.imlemetation.InMemoryPlayerRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
 import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-class PlayerRepositoryTest {
+class InMemoryPlayerRepositoryTest {
 
-    private PlayerRepository playerRepository;
+    private InMemoryPlayerRepository playerRepository;
 
     @BeforeEach
     void setUp() {
@@ -20,10 +18,11 @@ class PlayerRepositoryTest {
     }
 
     @Test
-    void shouldBeAbleToInsertPlayer() throws DuplicateIdException {
+    void shouldBeAbleToInsertPlayerSuccessfully() throws DuplicateIdException {
         // arrange
         int playerOneId = 1;
         int playerTwoId = 2;
+
         // act
         playerRepository.insertPlayer(playerOneId, playerTwoId);
 
@@ -35,15 +34,17 @@ class PlayerRepositoryTest {
     }
 
     @Test
-    void shouldBeAbleToNotInsertDuplicatePlayer() throws DuplicateIdException {
+    void shouldNotBeAbleToInsertDuplicatePlayer() throws DuplicateIdException {
         // arrange
         int playerOneId = 1;
-        int playerTwoId = 1; // Duplicate ID
+        int playerTwoId = 1;
 
         // act & assert
         playerRepository.insertPlayer(playerOneId, playerTwoId);
+
+        // assert
         Set<Integer> totalPlayers = playerRepository.getTotalPlayers();
-        assertEquals(1, totalPlayers.size(),"Duplicate player is not added");
+        assertEquals(1, totalPlayers.size());
     }
 
     @Test

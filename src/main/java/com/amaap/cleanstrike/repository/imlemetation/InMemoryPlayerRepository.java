@@ -4,11 +4,10 @@ import com.amaap.cleanstrike.repository.PlayerRepository;
 import com.amaap.cleanstrike.repository.database.implementation.InMemoryDatabase;
 import com.amaap.cleanstrike.repository.exception.DuplicateIdException;
 
-import java.util.HashSet;
 import java.util.Set;
 
 public class InMemoryPlayerRepository implements PlayerRepository {
-    InMemoryDatabase inMemoryDatabase=new InMemoryDatabase();
+    InMemoryDatabase inMemoryDatabase = new InMemoryDatabase();
     private Set<Integer> totalPlayers = inMemoryDatabase.getPlayer();
 
     @Override
@@ -16,7 +15,7 @@ public class InMemoryPlayerRepository implements PlayerRepository {
         if (totalPlayers.contains(playerOneId) || totalPlayers.contains(playerTwoId)) {
             throw new DuplicateIdException("Duplicate player ID found.");
         }
-        inMemoryDatabase.insertPlayers(playerOneId,playerTwoId);
+        inMemoryDatabase.insertPlayers(playerOneId, playerTwoId);
 
     }
 
