@@ -8,7 +8,13 @@ import com.amaap.cleanstrike.repository.exception.DuplicateIdException;
 import java.util.Set;
 
 public class PlayerService {
-    PlayerRepository playerRepository;
+
+
+    private PlayerRepository playerRepository;
+
+    public PlayerService(PlayerRepository playerRepository) {
+        this.playerRepository = playerRepository;
+    }
 
     public Response validateToCreate(int playerOneId, int playerTwoId) throws DuplicateIdException {
 
@@ -20,7 +26,7 @@ public class PlayerService {
         }
     }
 
-    void createPlayer(int id1, int id2) throws DuplicateIdException {
+    public void createPlayer(int id1, int id2) throws DuplicateIdException {
         playerRepository.insertPlayer(id1, id2);
     }
 
