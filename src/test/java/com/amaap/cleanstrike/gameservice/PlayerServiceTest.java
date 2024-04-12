@@ -1,7 +1,6 @@
 package com.amaap.cleanstrike.gameservice;
 
 import com.amaap.cleanstrike.repository.exception.DuplicateIdException;
-
 import com.amaap.cleanstrike.repository.imlemetation.InMemoryPlayerRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -28,7 +27,7 @@ public class PlayerServiceTest {
         int playerTwoId = 2;
 
         // act
-        playerService.createPlayer(playerOneId, playerTwoId);
+        playerService.validateToCreate(playerOneId, playerTwoId);
 
         // assert
         Set<Integer> createdPlayers = playerService.getCreatedPlayer();
@@ -44,7 +43,7 @@ public class PlayerServiceTest {
         int playerTwoId = 1;
 
         // act
-        playerService.createPlayer(playerOneId, playerTwoId);
+        playerService.validateToCreate(playerOneId, playerTwoId);
 
         // assert
         Set<Integer> totalPlayers = playerService.getCreatedPlayer();

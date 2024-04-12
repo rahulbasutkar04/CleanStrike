@@ -26,7 +26,7 @@ public class PlayerService {
         }
     }
 
-    public void createPlayer(int id1, int id2) throws DuplicateIdException {
+    private void createPlayer(int id1, int id2) throws DuplicateIdException {
         playerRepository.insertPlayer(id1, id2);
     }
 

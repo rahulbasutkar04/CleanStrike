@@ -2,7 +2,9 @@ package com.amaap.cleanstrike.repository.database.implementation;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
 import java.util.Set;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -35,7 +37,7 @@ class InMemoryDatabaseTest {
     void shouldNotBeAbleToInsertDuplicatePlayers() {
         // arrange
         int playerOneId = 1;
-        int playerTwoId = 1; // Duplicate ID
+        int playerTwoId = 1;
 
         // act
         database.insertPlayers(playerOneId, playerTwoId);
